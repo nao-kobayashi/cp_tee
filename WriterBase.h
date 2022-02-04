@@ -5,7 +5,8 @@
 
 class WriterBase {
 public:
-    virtual void write(std::string &line) = 0;
+    virtual ~WriterBase() = 0;
+    virtual void write(const std::string &line) = 0;
 };
 
 

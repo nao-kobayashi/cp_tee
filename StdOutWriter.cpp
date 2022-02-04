@@ -1,7 +1,10 @@
 #include <iostream>
 #include "StdOutWriter.h"
 
-void StdOutWriter::write(std::string &line) {
+StdOutWriter::StdOutWriter() {}
+StdOutWriter::~StdOutWriter() {}
+
+void StdOutWriter::write(const std::string &line) {
     std::cout << line << std::endl;
 }
 

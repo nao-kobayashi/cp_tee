@@ -8,18 +8,25 @@
 
 class FileWriter: public WriterBase {
 public:
-    FileWriter(std::string fp, bool app, bool now);
-    ~FileWriter();
-    void write(std::string &line) override;
-    static std::shared_ptr<FileWriter> create(std::string file_path, bool append, bool put_now);
+    virtual ~FileWriter() override;
+
+    void write(const std::string &line) override;
+
+    static std::shared_ptr<FileWriter> create(
+        const std::string file_path,
+        const bool append,
+        const bool put_now);
 
 private:
-    std::string getDatetimeStr();
+    FileWriter();
+    explicit FileWriter(const std::string fp, const bool app, const bool now);
+
+    std::string getDatetimeStr() const;
 
     std::ofstream file_stream;
-    std::string file_path;
-    bool append;
-    bool put_now;
+    const std::string file_path;
+    const bool append;
+    const bool put_now;
 };
 
 

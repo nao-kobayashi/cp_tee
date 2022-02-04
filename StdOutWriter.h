@@ -7,8 +7,12 @@
 
 class StdOutWriter: public WriterBase {
 public:
-    void write(std::string &line) override;
+    virtual ~StdOutWriter() override;
+    void write(const std::string &line) override;
     static std::shared_ptr<StdOutWriter> create();
+
+private:
+    StdOutWriter();
 };
 
 
